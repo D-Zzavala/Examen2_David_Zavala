@@ -5,6 +5,8 @@
  */
 package examen2_davidzavala;
 
+import java.util.ArrayList;
+import java.util.Random;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -16,6 +18,10 @@ public class Frame extends javax.swing.JFrame {
     /**
      * Creates new form Frame
      */
+    AdminOrden AO = new AdminOrden();
+    ArrayList<Orden> Ordenes = AO.getOrdenes();
+    Orden Temp;
+
     public Frame() {
         initComponents();
     }
@@ -38,42 +44,43 @@ public class Frame extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        Ta_Factura = new javax.swing.JTextArea();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Jta_Orden = new javax.swing.JTable();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         TF_Cliente = new javax.swing.JTextField();
         JS_Papas = new javax.swing.JSpinner();
         JS_Pure = new javax.swing.JSpinner();
-        JS_Piezas2 = new javax.swing.JSpinner();
+        JS_Piezas = new javax.swing.JSpinner();
         JS_Fresco = new javax.swing.JSpinner();
         JS_Biscuits = new javax.swing.JSpinner();
         JS_Pies = new javax.swing.JSpinner();
         JPB_Orden = new javax.swing.JProgressBar();
+        JB_Archivos = new javax.swing.JButton();
         JB_Hilo = new javax.swing.JButton();
-        JB_Hilo1 = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         TF_Orden = new javax.swing.JTextField();
+        JB_ImprimirFactura = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setText("Progreso de Orden");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 510, -1, -1));
 
         jLabel2.setText("Refresco");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, -1, 20));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 300, -1, 20));
 
         jLabel3.setText("Biscuits");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, -1, 20));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 370, -1, 20));
 
         jLabel4.setText("Puré");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, -1, 20));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 230, -1, 20));
 
         jLabel5.setText("Pies");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 380, -1, 20));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 370, -1, 20));
 
         jLabel6.setText("Orden Lista");
         getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, -1, -1));
@@ -82,15 +89,15 @@ public class Frame extends javax.swing.JFrame {
         getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 360, -1, -1));
 
         jLabel8.setText("Piezas de Pollo");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, -1));
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        Ta_Factura.setColumns(20);
+        Ta_Factura.setRows(5);
+        jScrollPane1.setViewportView(Ta_Factura);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 380, 320, 290));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Jta_Orden.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -106,53 +113,109 @@ public class Frame extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(Jta_Orden);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 50, 320, 300));
 
         jLabel9.setText("Papas");
-        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 310, -1, 20));
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 300, -1, 20));
 
+        jLabel10.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel10.setText("Popeyes");
-        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 290, 60));
 
         jLabel11.setText("Cliente");
-        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1));
-        getContentPane().add(TF_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 90, -1));
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 120, -1, -1));
+        getContentPane().add(TF_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 140, 90, -1));
 
-        JS_Papas.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        getContentPane().add(JS_Papas, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 50, 40));
+        JS_Papas.setModel(new javax.swing.SpinnerNumberModel(1, 0, null, 1));
+        getContentPane().add(JS_Papas, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 290, 50, 40));
 
-        JS_Pure.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        getContentPane().add(JS_Pure, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, 50, 40));
+        JS_Pure.setModel(new javax.swing.SpinnerNumberModel(1, 0, null, 1));
+        getContentPane().add(JS_Pure, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 220, 50, 40));
 
-        JS_Piezas2.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        getContentPane().add(JS_Piezas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 50, 40));
+        JS_Piezas.setModel(new javax.swing.SpinnerNumberModel(1, null, null, 1));
+        getContentPane().add(JS_Piezas, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 50, 40));
 
-        JS_Fresco.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        getContentPane().add(JS_Fresco, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 50, 40));
+        JS_Fresco.setModel(new javax.swing.SpinnerNumberModel(1, 0, null, 1));
+        getContentPane().add(JS_Fresco, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 290, 50, 40));
 
-        JS_Biscuits.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        getContentPane().add(JS_Biscuits, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 50, 40));
+        JS_Biscuits.setModel(new javax.swing.SpinnerNumberModel(1, 0, null, 1));
+        getContentPane().add(JS_Biscuits, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 360, 50, 40));
 
-        JS_Pies.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
-        getContentPane().add(JS_Pies, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, 50, 40));
-        getContentPane().add(JPB_Orden, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 260, 40));
+        JS_Pies.setModel(new javax.swing.SpinnerNumberModel(1, 0, null, 1));
+        getContentPane().add(JS_Pies, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 360, 50, 40));
+        getContentPane().add(JPB_Orden, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 500, 260, 40));
 
-        JB_Hilo.setText("Archivos de Ordenes");
-        getContentPane().add(JB_Hilo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 550, -1, -1));
+        JB_Archivos.setText("Archivos de Ordenes");
+        JB_Archivos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_ArchivosActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JB_Archivos, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 30, -1, -1));
 
-        JB_Hilo1.setText("Trabajar Orden");
-        getContentPane().add(JB_Hilo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 550, -1, -1));
+        JB_Hilo.setText("Trabajar Orden");
+        JB_Hilo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_HiloActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JB_Hilo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 610, -1, -1));
 
         jLabel12.setText("Orden");
-        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, -1, -1));
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 120, -1, -1));
 
         TF_Orden.setEditable(false);
-        getContentPane().add(TF_Orden, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 90, -1));
+        getContentPane().add(TF_Orden, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 140, 90, -1));
+
+        JB_ImprimirFactura.setText("Imprimir factura");
+        JB_ImprimirFactura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                JB_ImprimirFacturaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(JB_ImprimirFactura, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 610, 140, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public static int ON(ArrayList<Orden> AO) {
+        int ret = 10000 + AO.size();
+        return ret;
+    }
+
+    private void JB_HiloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_HiloActionPerformed
+        try {
+            
+            Orden Or = new Orden(ON(Ordenes), TF_Cliente.getText(), (int) JS_Piezas.getValue(), (int) JS_Fresco.getValue(),
+                    (int) JS_Papas.getValue(), (int) JS_Biscuits.getValue(), (int) JS_Pure.getValue(), (int) JS_Pies.getValue());
+            
+            Temp = Or;
+            
+            Hilo H = new Hilo(Or, JPB_Orden, Jta_Orden, Ta_Factura);
+            Thread p1 = new Thread(H);
+            p1.start();
+
+            AdminOrden AC = new AdminOrden("./ordenes.tpl");
+            AC.CargarArchivo();
+            AC.setOrden(Or);
+            AC.EscribirArchivo();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_JB_HiloActionPerformed
+
+    private void JB_ArchivosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_ArchivosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_JB_ArchivosActionPerformed
+
+    private void JB_ImprimirFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JB_ImprimirFacturaActionPerformed
+        AdminOrden AC = new AdminOrden("./ordenes.tpl");
+            AC.WriteFile(Temp, Ta_Factura);
+            Temp=null;
+    }//GEN-LAST:event_JB_ImprimirFacturaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -190,17 +253,20 @@ public class Frame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JB_Archivos;
     private javax.swing.JButton JB_Hilo;
-    private javax.swing.JButton JB_Hilo1;
+    private javax.swing.JButton JB_ImprimirFactura;
     private javax.swing.JProgressBar JPB_Orden;
     private javax.swing.JSpinner JS_Biscuits;
     private javax.swing.JSpinner JS_Fresco;
     private javax.swing.JSpinner JS_Papas;
     private javax.swing.JSpinner JS_Pies;
-    private javax.swing.JSpinner JS_Piezas2;
+    private javax.swing.JSpinner JS_Piezas;
     private javax.swing.JSpinner JS_Pure;
+    private javax.swing.JTable Jta_Orden;
     private javax.swing.JTextField TF_Cliente;
     private javax.swing.JTextField TF_Orden;
+    private javax.swing.JTextArea Ta_Factura;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -215,7 +281,5 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
