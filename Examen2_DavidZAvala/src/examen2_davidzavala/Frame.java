@@ -5,6 +5,8 @@
  */
 package examen2_davidzavala;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author 50431
@@ -27,18 +29,127 @@ public class Frame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        TF_Cliente = new javax.swing.JTextField();
+        JS_Papas = new javax.swing.JSpinner();
+        JS_Pure = new javax.swing.JSpinner();
+        JS_Piezas2 = new javax.swing.JSpinner();
+        JS_Fresco = new javax.swing.JSpinner();
+        JS_Biscuits = new javax.swing.JSpinner();
+        JS_Pies = new javax.swing.JSpinner();
+        JPB_Orden = new javax.swing.JProgressBar();
+        JB_Hilo = new javax.swing.JButton();
+        JB_Hilo1 = new javax.swing.JButton();
+        jLabel12 = new javax.swing.JLabel();
+        TF_Orden = new javax.swing.JTextField();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setText("Progreso de Orden");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
+
+        jLabel2.setText("Refresco");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, -1, 20));
+
+        jLabel3.setText("Biscuits");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, -1, 20));
+
+        jLabel4.setText("Puré");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 240, -1, 20));
+
+        jLabel5.setText("Pies");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 380, -1, 20));
+
+        jLabel6.setText("Orden Lista");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 30, -1, -1));
+
+        jLabel7.setText("Factura");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 360, -1, -1));
+
+        jLabel8.setText("Piezas de Pollo");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 380, 320, 290));
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Orden", "Elemento", "Tiempo"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jTable1);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 50, 320, 300));
+
+        jLabel9.setText("Papas");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 310, -1, 20));
+
+        jLabel10.setText("Popeyes");
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+
+        jLabel11.setText("Cliente");
+        getContentPane().add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 130, -1, -1));
+        getContentPane().add(TF_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 90, -1));
+
+        JS_Papas.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        getContentPane().add(JS_Papas, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 300, 50, 40));
+
+        JS_Pure.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        getContentPane().add(JS_Pure, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 230, 50, 40));
+
+        JS_Piezas2.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        getContentPane().add(JS_Piezas2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 230, 50, 40));
+
+        JS_Fresco.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        getContentPane().add(JS_Fresco, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 300, 50, 40));
+
+        JS_Biscuits.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        getContentPane().add(JS_Biscuits, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 370, 50, 40));
+
+        JS_Pies.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+        getContentPane().add(JS_Pies, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 370, 50, 40));
+        getContentPane().add(JPB_Orden, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 70, 260, 40));
+
+        JB_Hilo.setText("Archivos de Ordenes");
+        getContentPane().add(JB_Hilo, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 550, -1, -1));
+
+        JB_Hilo1.setText("Trabajar Orden");
+        getContentPane().add(JB_Hilo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 550, -1, -1));
+
+        jLabel12.setText("Orden");
+        getContentPane().add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 130, -1, -1));
+
+        TF_Orden.setEditable(false);
+        getContentPane().add(TF_Orden, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 90, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -79,5 +190,32 @@ public class Frame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton JB_Hilo;
+    private javax.swing.JButton JB_Hilo1;
+    private javax.swing.JProgressBar JPB_Orden;
+    private javax.swing.JSpinner JS_Biscuits;
+    private javax.swing.JSpinner JS_Fresco;
+    private javax.swing.JSpinner JS_Papas;
+    private javax.swing.JSpinner JS_Pies;
+    private javax.swing.JSpinner JS_Piezas2;
+    private javax.swing.JSpinner JS_Pure;
+    private javax.swing.JTextField TF_Cliente;
+    private javax.swing.JTextField TF_Orden;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }
